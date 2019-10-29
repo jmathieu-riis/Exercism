@@ -1,0 +1,6 @@
+.idea/
+.gradle/
+.exercism/
+build/
+!build/test-results
+build/test-results/test/binary
