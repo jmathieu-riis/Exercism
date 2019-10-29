@@ -4,3 +4,4 @@
 build/
 !build/test-results
 build/test-results/test/binary
+.DS_Store
