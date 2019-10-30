@@ -9,15 +9,22 @@ class Darts {
     }
 
     /**
-     * Calculate distance of x, y coordinate from origin (0, 0)
+     * Calculate distance of (x, y) coordinate from origin (0, 0)
      */
     private double distFromOrigin() {
-        
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        return Math.sqrt(Math.pow(this.x, 2.0) + Math.pow(this.y, 2.0));
     }
 
     int score() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        double myDist = distFromOrigin();
+        if (myDist <= 1.0) {
+            return 10;
+        } else if (myDist <= 5.0) {
+            return 5;
+        } else if (myDist <= 10.0) {
+            return 1;
+        }
+        return 0;
     }
 
 }
