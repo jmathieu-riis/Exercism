@@ -9,7 +9,7 @@ class RnaTranscription {
     /**
      * Convert the given string to a string array of each character in the string s
      **/
-    String[] stringToStringArray(String s) {
+    private String[] stringToStringArray(String s) {
         char[] charArray = s.toCharArray();
         String[] stringArray = new String[charArray.length];
         int i = 0;
@@ -20,10 +20,17 @@ class RnaTranscription {
         return stringArray;
     }
 
+    /**
+     * Convert given DNA sequence to an RNA sequence
+     **/
     String transcribe(String dnaStrand) {
         String[] dnaStrandArr = stringToStringArray(dnaStrand);
-
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        StringBuilder rnaStrand = new StringBuilder();
+        for (String dnaLetter : dnaStrandArr) {
+            int dnaIndex = dnaIndices.indexOf(dnaLetter);
+            rnaStrand.append(rnaIndices.get(dnaIndex));
+        }
+        return rnaStrand.toString();
     }
 
 }
