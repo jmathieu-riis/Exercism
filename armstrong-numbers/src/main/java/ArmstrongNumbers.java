@@ -18,14 +18,17 @@ class ArmstrongNumbers {
 	}
 
 	/**
-	 * return true if the given number is the sum of its own digits each raised to the power of the number of digits.
+	 * Return true if the given number is the sum of its own digits each raised to the power of the number of digits.
 	 **/
 	boolean isArmstrongNumber(int numberToCheck) {
 		int[] myDigits = numberToDigitArray(numberToCheck);
-
-
-		throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-		
+		int digitCount = myDigits.length;
+		int armstrongSum = 0;
+		for (int digit : myDigits) {
+			// Compute Armstrong Sum
+			armstrongSum += Math.pow(digit, digitCount);
+		}
+		return digitCount > 0 && armstrongSum == numberToCheck;
 	}
 
 }
