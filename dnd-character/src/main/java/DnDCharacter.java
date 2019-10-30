@@ -19,7 +19,7 @@ class DnDCharacter {
         this.intelligence = ability();
         this.wisdom = ability();
         this.charisma = ability();
-        // TODO, set HP
+        this.hp = 10 + modifier(this.constitution);
     }
 
     private int rollDie6() {
@@ -48,18 +48,19 @@ class DnDCharacter {
         return sum;
     }
 
-
     /**
      * Calculate the constitution modifier given the constitution as the input
      **/
     public int modifier(int input) {
-        int modPreDivision = 10 - input;
-        int res = modPreDivision / 2;
+        int modPreDivision = input - 10;
+        double res = Math.floor((double) modPreDivision / 2.0);
         if (modPreDivision < 0) {
+            // Turn mod pre division into a positive version of itself
             int posMod = Math.abs(modPreDivision);
-            res = -1 * (posMod / 2);
+            // Change result to rounding posMod/2 and then multiplying it by negative 1
+            res = Math.round(posMod / 2.0) * -1;
         }
-        return res;
+        return (int) res;
     }
 
     public int getCharisma() {
