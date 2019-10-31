@@ -1,5 +1,5 @@
-import java.util.ArrayList;
-import java.util.Arrays;
+
+import java.util.concurrent.ConcurrentSkipListSet;
 
 public class PangramChecker {
 //    ArrayList<String> alphabet = new ArrayList<>(Arrays.asList(
@@ -13,8 +13,20 @@ public class PangramChecker {
      * @return boolean determining whether or not the input is a pangram
      **/
     public boolean isPangram(String input) {
-        test();
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        // A set of integers containing our comparison values
+        ConcurrentSkipListSet<Integer> prevValidCompVals = new ConcurrentSkipListSet<>();
+        int max = input.length();
+        for (int i = 0; i < max; ++i) {
+            String c = Character.toString(input.charAt(i));
+            // Calculate comparison of char at index i to the lowercase letter 'a'
+            int curCompVal = c.toLowerCase().compareTo("a");
+            // If the comparison value is between 0 and 25, this char is one of the letters of the alphabet
+            if (curCompVal >= 0 && curCompVal <= 25) {
+                prevValidCompVals.add(curCompVal);
+            }
+        }
+        // returns true if our set is of set 26 (containing only numbers 0 through 25)
+        return prevValidCompVals.size() == 26;
     }
 
     private void test() {
