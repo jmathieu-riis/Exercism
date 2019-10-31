@@ -19,7 +19,7 @@ public class PangramChecker {
                 prevValidCompVals.add(curCompVal);
             }
         }
-        // returns true if our set is of set 26 (containing only numbers 0 through 25)
+        // returns true if our set is of size 26 (containing only numbers 0 through 25)
         return prevValidCompVals.size() == 26;
     }
 
