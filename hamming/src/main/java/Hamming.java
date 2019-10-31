@@ -1,7 +1,11 @@
 class Hamming {
 
+    private String lStrand;
+    private String rStrand;
+    
     Hamming(String leftStrand, String rightStrand) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        this.lStrand = leftStrand;
+        this.rStrand = rightStrand;
     }
 
     int getHammingDistance() {
