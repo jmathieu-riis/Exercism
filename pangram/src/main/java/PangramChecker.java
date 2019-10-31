@@ -2,11 +2,6 @@
 import java.util.concurrent.ConcurrentSkipListSet;
 
 public class PangramChecker {
-//    ArrayList<String> alphabet = new ArrayList<>(Arrays.asList(
-//            "a", "b", "c", "d", "e", "f", "g", "", "", "", "", "", ""
-//            ));
-
-
     /**
      * Determine if the given string 'input' is a pangram (contains each letter of the alphabet)
      * @param input the string input to test
@@ -15,8 +10,7 @@ public class PangramChecker {
     public boolean isPangram(String input) {
         // A set of integers containing our comparison values
         ConcurrentSkipListSet<Integer> prevValidCompVals = new ConcurrentSkipListSet<>();
-        int max = input.length();
-        for (int i = 0; i < max; ++i) {
+        for (int i = 0; i < input.length(); ++i) {
             String c = Character.toString(input.charAt(i));
             // Calculate comparison of char at index i to the lowercase letter 'a'
             int curCompVal = c.toLowerCase().compareTo("a");
@@ -27,13 +21,6 @@ public class PangramChecker {
         }
         // returns true if our set is of set 26 (containing only numbers 0 through 25)
         return prevValidCompVals.size() == 26;
-    }
-
-    private void test() {
-        System.out.println("a".compareTo("z"));
-        System.out.println("z".compareTo("a"));
-        System.out.println("a".compareTo("a"));
-        System.out.println("1".compareTo("a"));
     }
 
 }
