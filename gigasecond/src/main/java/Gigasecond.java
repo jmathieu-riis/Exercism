@@ -1,16 +1,23 @@
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.*;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
 
 class Gigasecond {
 
-    LocalDateTime myDT;
+    private LocalDateTime myDT;
+    private Long oneGigaSecond = Long.valueOf("1000000000");
 
     Gigasecond(LocalDate moment) {
-        myDT = moment.atTime(0, 0);
+        addGigaSecond(moment.atTime(0, 0, 0));
+
     }
 
     Gigasecond(LocalDateTime moment) {
-        myDT = moment;
+        addGigaSecond(moment);
+    }
+
+    private void addGigaSecond(LocalDateTime moment) {
+        myDT = moment.plus(oneGigaSecond, ChronoUnit.SECONDS);
     }
 
     LocalDateTime getDateTime() {
