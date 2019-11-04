@@ -1,7 +1,9 @@
 class SpaceAge {
 
+    private double seconds;
+
     SpaceAge(double seconds) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+        this.seconds = seconds;
     }
 
     double getSeconds() {
